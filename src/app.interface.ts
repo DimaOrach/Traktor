@@ -14,6 +14,7 @@ export class QInfoAboutTriangleDto {
   @IsNumber()
   side3: number;
 }
+
 export class QInfoAboutPerimeterDto {
   @Transform(({ value }) => Number(value))
   @IsNumber()
