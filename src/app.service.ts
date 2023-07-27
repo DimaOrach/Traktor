@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { QInfoAboutTriangleDto, QInfoAboutPerimeterDto, QInfoAboutAreaDto } from './app.interface';
+import { QInfoAboutTriangleDto, QInfoAboutPerimeterDto, QInfoAboutAreaDto, QIsRightAngleDto } from './app.interface';
 
 @Injectable()
 export class AppService {
@@ -24,5 +24,9 @@ export class AppService {
   getAreaOfTriangle(query: QInfoAboutAreaDto) {
     const perimeter = query.side1 + query.side2 + query.side3;
     return perimeter / 2;
+  }
+  IsRightAngled(query: QIsRightAngleDto) {
+    const {side1, side2, side3} = query;
+    return side2 * side2 === (side1 * side1 + side3 * side3);
   }
 }

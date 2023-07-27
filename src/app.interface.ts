@@ -41,3 +41,17 @@ export class QInfoAboutAreaDto {
   @IsNumber()
   side3: number;
 }
+
+export class QIsRightAngleDto {
+  @Transform(({ value }) => Number(value))
+  @IsNumber()
+  side1: number;
+
+  @Transform(({ value }) => Number(value))
+  @IsNumber()
+  side2: number;
+
+  @Transform(({ value }) => Number(value))
+  @IsNumber()
+  side3: number;
+}
