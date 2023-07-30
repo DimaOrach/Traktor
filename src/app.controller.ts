@@ -1,6 +1,6 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { AppService } from './app.service';
-import { QInfoAboutTriangleDto, QInfoAboutPerimeterDto, QInfoAboutAreaDto, QIsRightAngleDto } from './app.interface';
+import { QInfoAboutTriangleDto, QInfoAboutPerimeterDto, QInfoAboutAreaDto, QIsRightAngleDto, QIsEquilateraleDto, QIsIsoscelesDto } from './app.interface';
 
 
 @Controller('triangle')
@@ -21,5 +21,13 @@ export class AppController {
   @Get('/IsRightAngled')
   IsRightAngled(@Query() query: QIsRightAngleDto) {
     return this.appService.IsRightAngled(query);
+  }
+  @Get('/IsEquilateral')
+  IsEquilateral(@Query() query: QIsEquilateraleDto) {
+    return this.appService.IsEquilateral(query);
+  }
+  @Get('/IsIsosceles')
+  IsIsosceles(@Query() query: QIsIsoscelesDto) {
+    return this.appService.IsIsosceles(query);
   }
 }

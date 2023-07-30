@@ -55,3 +55,29 @@ export class QIsRightAngleDto {
   @IsNumber()
   side3: number;
 }
+export class QIsEquilateraleDto {
+  @Transform(({ value }) => Number(value))
+  @IsNumber()
+  side1: number;
+
+  @Transform(({ value }) => Number(value))
+  @IsNumber()
+  side2: number;
+
+  @Transform(({ value }) => Number(value))
+  @IsNumber()
+  side3: number;
+}
+export class QIsIsoscelesDto {
+  @Transform(({ value }) => Number(value))
+  @IsNumber()
+  side1: number;
+
+  @Transform(({ value }) => Number(value))
+  @IsNumber()
+  side2: number;
+
+  @Transform(({ value }) => Number(value))
+  @IsNumber()
+  side3: number;
+}
