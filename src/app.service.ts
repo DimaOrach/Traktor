@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { QInfoAboutTriangleDto, QInfoAboutPerimeterDto, QInfoAboutAreaDto, QIsRightAngleDto, QIsEquilateraleDto, QIsIsoscelesDto } from './app.interface';
+import { QInfoAboutTriangleDto, QInfoAboutPerimeterDto, QInfoAboutAreaDto, QIsRightAngleDto, 
+  QIsEquilateraleDto, QIsIsoscelesDto, QAreCongruentDto } from './app.interface';
 
 @Injectable()
 export class AppService {
@@ -36,5 +37,13 @@ export class AppService {
   IsIsosceles(query: QIsIsoscelesDto) {
     const {side1, side3} = query;
     return (side1 === side3);
+  }
+  AreCongruent(query: QAreCongruentDto) {
+    const {tr1, tr2} = query;
+    const array1 = [ tr1.side1, tr1.side2, tr1.side3 ].sort()
+    const array2 = [ tr2.side1, tr2.side2, tr2.side3 ].sort()
+    const isEqual = JSON.stringify(array1) === JSON.stringify(array2);
+    return isEqual;
+  
   }
 }

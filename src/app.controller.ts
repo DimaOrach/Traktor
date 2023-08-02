@@ -1,6 +1,7 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Body, Controller, Get, Query } from '@nestjs/common';
 import { AppService } from './app.service';
-import { QInfoAboutTriangleDto, QInfoAboutPerimeterDto, QInfoAboutAreaDto, QIsRightAngleDto, QIsEquilateraleDto, QIsIsoscelesDto } from './app.interface';
+import { QInfoAboutTriangleDto, QInfoAboutPerimeterDto, QInfoAboutAreaDto, 
+  QIsRightAngleDto, QIsEquilateraleDto, QIsIsoscelesDto, QAreCongruentDto } from './app.interface';
 
 
 @Controller('triangle')
@@ -29,5 +30,10 @@ export class AppController {
   @Get('/IsIsosceles')
   IsIsosceles(@Query() query: QIsIsoscelesDto) {
     return this.appService.IsIsosceles(query);
+  }
+  @Get('/AreCongruent')
+  AreCongruent(@Query() query: QAreCongruentDto) {
+    //return console.log(query)
+    return this.appService.AreCongruent(query);
   }
 }
